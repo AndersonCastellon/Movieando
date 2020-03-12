@@ -1,0 +1,16 @@
+<div
+  (click)="clicked.emit(movie.id)"
+  class="card bg-dark text-white cursor"
+  style="width: 18rem;"
+>
+  <img
+    class="card-img"
+    [src]="movie.poster_path | urlImageComplet"
+    alt="Card image cap"
+  />
+  <div class="card-img-overlay">
+    <h5 class="card-title">
+      <strong>{{ movie.title }}</strong>
+    </h5>
+  </div>
+</div>

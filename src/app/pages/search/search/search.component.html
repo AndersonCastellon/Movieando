@@ -1,0 +1,32 @@
+<div class="animate fadeInLeft">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="input-group">
+        <input
+          [value]="queryText || ''"
+          id="search"
+          #search
+          (keyup)="searchMovie(search.value)"
+          style="height: 40px;"
+          type="text"
+          class="form-control"
+          placeholder="Buscar películas"
+        />
+        <div class="input-group-append">
+          <span class="input-group-text"
+            ><i class="now-ui-icons ui-1_zoom-bold"></i
+          ></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card-columns">
+      <app-movie-card
+        *ngFor="let movie of movies"
+        [movie]="movie"
+        (clicked)="ngOnClickDetailsMovie($event)"
+      ></app-movie-card>
+    </div>
+  </div>
+</div>

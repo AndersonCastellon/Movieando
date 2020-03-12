@@ -1,0 +1,57 @@
+<div *ngIf="loading" class="row">
+  <div class="col-md-12">
+    <div class="text-center">
+      <p class="display-4">
+        <i class="fa fa-sync fa-spin fa-5x"></i>
+      </p>
+    </div>
+  </div>
+</div>
+<div *ngIf="!loading" class="row">
+  <div class="col-md-4">
+    <div class="card bg-dark text-white">
+      <img
+        [src]="movie.poster_path | urlImageComplet"
+        class="card-img img-fluid"
+        alt=""
+      />
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">{{ movie.original_title }}</h2>
+        <p class="small text-muted">
+          Fecha de estreno: {{ movie.release_date }}
+        </p>
+        <p class="card-text">{{ movie.overview }}</p>
+        <p class="badge badge-primary" *ngFor="let genre of movie.genres">
+          {{ genre.name }}
+        </p>
+        <p class="text-muted">Productoras:</p>
+        <div class="row">
+          <div *ngFor="let prod of movie.production_companies" class="col">
+            <img
+              *ngIf="prod.logo_path"
+              [src]="prod.logo_path | urlImageComplet"
+              style="width: 50px;"
+            />
+            <p class="small">{{ prod.name }}</p>
+          </div>
+        </div>
+        <p class="badge badge-info text-capitalize">
+          Popularidad {{ movie.popularity }}
+        </p>
+        <p class="badge badge-warning text-capitalize">
+          Votos {{ movie.vote_count }}
+        </p>
+        <p class="badge badge-success text-capitalize">
+          Promedio {{ movie.vote_average }}
+        </p>
+        <button (click)="goBack()" class="btn btn-danger btn-block">
+          Regresar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<h3>Películas en cartelera</h3>
+<div *ngIf="loadInTheatres" class="card-columns">
+  <app-movie-card
+    *ngFor="let movie of inTheatres"
+    [movie]="movie"
+    (clicked)="ngOnClickDetailsMovie($event)"
+  ></app-movie-card>
+</div>
+
+<h3>Películas más populares</h3>
+<div *ngIf="loadPopulars" class="card-columns">
+  <app-movie-card
+    *ngFor="let movie of populars"
+    [movie]="movie"
+    (clicked)="ngOnClickDetailsMovie($event)"
+  ></app-movie-card>
+</div>
+
+<h3>Películas más vistas por los peques</h3>
+<div *ngIf="loadKidPopulars" class="card-columns">
+  <app-movie-card
+    *ngFor="let movie of kidsPopulars"
+    [movie]="movie"
+    (clicked)="ngOnClickDetailsMovie($event)"
+  ></app-movie-card>
+</div>
